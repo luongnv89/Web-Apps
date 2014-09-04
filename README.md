@@ -6,6 +6,7 @@ Check at: [http://luongnv.info/apps](http://luongnv.info/apps)
 #Ready apps:
 - Pdf viewer
 - Online Radio
+- QRCode generator
 
 ====
 #Wish list apps:

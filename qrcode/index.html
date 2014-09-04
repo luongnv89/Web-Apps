@@ -88,10 +88,7 @@
     <!--Main contain -->
     <div class="container bs-docs-container" id='main-contain'>
     <div class="input-group" style="width:90%;">
-      <input type="text" class="form-control" placeholder="Input text" id="inputText" value="http://luongnv.info">
-      <span class="input-group-btn">
-        <button class="btn btn-success" type="button" id="btnQRCode">QR Code</button>
-      </span>
+      <input type="text" class="form-control" placeholder="Input text" id="inputText" value="http://luongnv.info" onchange="genNewQRCode();" onkeydown="genNewQRCode();" oninput="genNewQRCode();">
     </div><!-- /input-group -->
     <div id="qrcode" align="center">  
     </div>
@@ -106,10 +103,10 @@
           colorLight : "#ffffff",
           correctLevel : QRCode.CorrectLevel.H
       });
-    btn.addEventListener('click',function () {
+    function genNewQRCode () {
       qrcode.clear(); // clear the code.
       qrcode.makeCode(inputText.value); // make another code.
-    },false);
+    }
     </script>  
       <!--End of main contain -->
     </div>

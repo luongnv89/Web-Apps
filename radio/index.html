@@ -44,12 +44,23 @@
 
     #the_footer{
       text-align:center;
-      border-top:1px solid green;
     }
 
     .link_icon{
       width: 32px;
       margin: 5px;
+    }
+
+    img:hover{
+      -webkit-filter: grayscale(0%);
+      -moz-filter: grayscale(0%);
+      filter: grayscale(0%);
+    }
+
+    img{
+      -webkit-filter: grayscale(100%);
+      -moz-filter: grayscale(100%);
+      filter: grayscale(100%);
     }
 
     #main-contain{
@@ -73,19 +84,20 @@
       width: 100%;
     }
     #audioplayer{
-      width:100%;
-      margin-bottom:10px;
+      margin-bottom: 10px;
     }
+
     #channelName{
-      width:100%;
       font-weight: bold;
       margin-bottom:10px;
     }
     #radioplay{
-      width: 90%;
+      /*width: 60%;*/
+      margin-right: auto;
+      margin-left: auto;
       position: fixed; 
       z-index: 10000;
-      padding-top: 3px;
+      padding: 5px;
       opacity: 0.8;
       margin-left: 10px;
     }
@@ -101,6 +113,8 @@
     ga('create', 'UA-51957988-2', 'luongnv.info');
     ga('send', 'pageview');
   </script>
+  <script type="text/javascript" src="script.js"></script>
+  <link rel="stylesheet" type="text/css" href="hover-min.css">
 </head>
 <body>
 
@@ -112,74 +126,14 @@
       <h1><a href="http://luongnv.info">Nguyen Van Luong</a> <small>Radio Online</small></h1>
     </div>
     <!--Main contain -->
-     <div id="radioplay">
-      <audio id="audioplayer" preload="true" autoplay ="true" controls="" src="http://bbcwssc.ic.llnwd.net/stream/bbcwssc_mp1_ws-eieuk"></audio>
-      <div style="width:100%;" align="center">
-        Current radio:<span id="channelName">BBC World Service</span>
-      </div>
+    <div id="radioplay">
+      <audio id="audioplayer" preload="true" autoplay ="true" controls="" src="http://bbcwssc.ic.llnwd.net/stream/bbcwssc_mp1_ws-eieuk" hidden></audio>
+      <img src="stop.png" id = "btnPlay"  class="hidden-xs"></button>
+      <span id="channelName">BBC World Service</span>
     </div>
     <div class="container bs-docs-container" id='main-contain'>
-      <script type="text/javascript">
-        audioplayer = document.getElementById('audioplayer');
-        channelName = document.getElementById('channelName');
-      </script>
-      <div class="row">
-        <!--BBC radio -->
-        <div class="col-sm-6 col-md-4">
-          <div class="thumbnail">
-            <img src="../images/bbc.jpg" class="thumb-image" onclick="audioplayer.src = 'http://bbcwssc.ic.llnwd.net/stream/bbcwssc_mp1_ws-eieuk';channelName.innerHTML='BBC World Service';">
-            <div class="caption">
-              <h3>BBC World Service</h3>
-            </div>
-          </div>
-        </div>
 
-        <!--Jazzfm -->
-        <div class="col-sm-6 col-md-4">
-          <div class="thumbnail">
-            <img src="../images/jazzfm.jpg" class="thumb-image" onclick="audioplayer.src = 'http://listen.onmyradio.net:8002/;';channelName.innerHTML='Jazz FM';" title="Click to play">
-            <div class="caption">
-              <h3>Jazz FM</h3>
-            </div>
-          </div>
-        </div>
-        <!--Classic FM-->
-        <div class="col-sm-6 col-md-4">
-          <div class="thumbnail" >
-            <img src="../images/classicfm.gif" class="thumb-image" onclick="audioplayer.src = 'http://media-ice.musicradio.com:80/ClassicFMMP3';channelName.innerHTML='Classic FM';" title="Click to play">
-            <div class="caption">
-              <h3>Classic FM</h3>
-            </div>
-          </div>
-        </div>
-        <!--Radio New Yok-->
-        <div class="col-sm-6 col-md-4">
-          <div class="thumbnail">
-            <img src="../images/ny.jpg" class="thumb-image" onclick="audioplayer.src = 'http://newyorkcity.radiostreamlive.com:8014/radionylive_128';channelName.innerHTML='Radio New Yok';" title="Click to play">
-            <div class="caption">
-              <h3>Radio New Yok</h3>
-            </div>
-          </div>
-        </div>
-
-        <!--Junior-->
-        <div class="col-sm-6 col-md-4">
-          <div class="thumbnail">
-            <img src="../images/junior.jpg" class="thumb-image" onclick="audioplayer.src = 'http://91.121.62.121:8080/;';channelName.innerHTML='Junior Radio';">
-            <div class="caption" title="Click to play">
-              <h3>Junior Radio</h3>
-            </div>
-          </div>
-        </div>
-        <!--HOTMIX Dance-->
-        <div class="col-sm-6 col-md-4">
-          <div class="thumbnail">
-            <img src="../images/hotmix.jpg" class="thumb-image" onclick="audioplayer.src = 'http://streaming.hotmix-radio.net/hotmixradio-dance-128.mp3';channelName.innerHTML='Hotmix Dance';" title="Click to play">
-            <div class="caption">
-              <h3>Hotmix Dance</h3>
-            </div>
-          </div>
-        </div>
+      <div class="row" id="listChannels">
       </div>
       <!--End of main contain -->
     </div>
@@ -189,13 +143,12 @@
         Find me on - <!-- Place this code where you want the badge to render. -->
         <a href="//plus.google.com/u/0/109877517435577683455?prsrc=3"
         rel="publisher" target="_top" style="text-decoration:none;">
-        <img src="//ssl.gstatic.com/images/icons/gplus-32.png" alt="Google+" style="border:0;width:32px;height:32px;"/>
+        <img src="//ssl.gstatic.com/images/icons/gplus-32.png" alt="Google+" style="border:0;width:32px;height:32px;" class="link_icon buzz float-shadow" />
       </a>
-      <a href="http://fr.linkedin.com/in/luongnv"><img src="../images/linkedin.png" class='link_icon'></a>
-      <a href="https://www.facebook.com/luongnv89"><img src="../images/facebook.png" class='link_icon'></a>
-      <a href="https://twitter.com/luongnv89"><img src="../images/twitter.png" class='link_icon'></a>
+      <a href="http://fr.linkedin.com/in/luongnv"><img src="../images/linkedin.png" class='link_icon buzz float-shadow'></a>
+      <a href="https://www.facebook.com/luongnv89"><img src="../images/facebook.png" class='link_icon buzz float-shadow'></a>
+      <a href="https://twitter.com/luongnv89"><img src="../images/twitter.png" class='link_icon buzz float-shadow'></a>
     </div>
-    Nguyen Van Luong - <a href="http://luongnv.info">http://luongnv.info</a> - <a href="mailto: luongnv89@gmail.com">luongnv89@gmail.com</a>
   </footer>
   <!-- End of main body -->
 </div>

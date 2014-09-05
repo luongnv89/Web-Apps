@@ -13,52 +13,10 @@
   <!-- Latest compiled and minified JavaScript -->
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
   <!-- End Bootstrap 3.2.0 -->
-  <script src="qrcode.min.js"></script>
+  <script src="../js/qrcode.min.js"></script>
+  <link rel="stylesheet" href="../css/hover-min.css">
+  <link rel="stylesheet" href="../css/appcss.css">
   <style type="text/css">
-    h1{
-      font:bold 30px Tahoma;
-    }
-    header, section, footer, aside, nav, article, hgroup{
-      display:block;
-    }
-    body{
-      width:90%;
-      display:-webkit-box;
-      display:-moz-box;
-      -webkit-box-pack:center;
-      -moz-box-pack:center;
-    }
-    #big_wrapper{
-      max-width:1000px;
-      margin:10px 0px;
-      display:-webkit-box;
-      display:-moz-box;
-      -webkit-box-orient: vertical;
-      -moz-box-orient: vertical;
-      -webkit-box-flex:1;
-      -moz-box-flex:1;
-    }
-    #top_header{
-      padding: 10px;
-      margin-left: 10px;
-    }
-
-    #the_footer{
-      text-align:center;
-      border-top:1px solid green;
-    }
-
-    .link_icon{
-      width: 32px;
-      margin: 5px;
-    }
-
-    #main-contain{
-      display:-webkit-box;
-      display:-moz-box;
-      -webkit-box-orient:vertical;
-      -moz-box-orient:vertical;
-    }
     #qrcode{
       padding: 50px;
     }
@@ -83,7 +41,7 @@
 
     <!--Header -->
     <div class="page-header">
-      <h1><a href="http://luongnv.info">Nguyen Van Luong</a> <small>QR Code</small></h1>
+      <h1>QR Code <small class="hidden-xs">Quickly copy text to mobile phone</small></h1>
     </div>
     <!--Main contain -->
     <div class="container bs-docs-container" id='main-contain'>
@@ -113,16 +71,10 @@
     <!--Footer -->
     <footer id='the_footer'>
       <div id='social_network'>
-        Find me on - <!-- Place this code where you want the badge to render. -->
-        <a href="//plus.google.com/u/0/109877517435577683455?prsrc=3"
-        rel="publisher" target="_top" style="text-decoration:none;">
-        <img src="//ssl.gstatic.com/images/icons/gplus-32.png" alt="Google+" style="border:0;width:32px;height:32px;"/>
-      </a>
-      <a href="http://fr.linkedin.com/in/luongnv"><img src="../images/linkedin.png" class='link_icon'></a>
-      <a href="https://www.facebook.com/luongnv89"><img src="../images/facebook.png" class='link_icon'></a>
-      <a href="https://twitter.com/luongnv89"><img src="../images/twitter.png" class='link_icon'></a>
-    </div>
-    Nguyen Van Luong - <a href="http://luongnv.info">http://luongnv.info</a> - <a href="mailto: luongnv89@gmail.com">luongnv89@gmail.com</a>
+    Contact - <a href="mailto:luongnv89@gmail.com"><img src="../images/email.png" class='link_icon float-shadow'></a>
+    <a href="http://fr.linkedin.com/in/luongnv"><img src="../images/linkedin.png" class='link_icon float-shadow'></a>
+    <a href="https://twitter.com/luongnv89"><img src="../images/twitter.png" class='link_icon float-shadow'></a>
+  </div>
   </footer>
   <!-- End of main body -->
 </div>

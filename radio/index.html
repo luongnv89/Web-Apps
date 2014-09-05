@@ -18,7 +18,7 @@
   <link rel="stylesheet" type="text/css" href="../css/appcss.css">
   <style type="text/css">
    #main-contain{
-      margin-top: 30px;
+      margin-top: 70px;
     }
     #audioplayer{
       margin-bottom: 10px;
@@ -27,9 +27,12 @@
     #channelName{
       font-weight: bold;
       margin-bottom:10px;
+      font-size: 20px;
+      font-family: 'Comic Sans MS';
+      font-style: italic;
     }
     #radioplay{
-      /*width: 60%;*/
+      width: 60%;
       margin-right: auto;
       margin-left: auto;
       position: fixed; 
@@ -37,13 +40,23 @@
       padding: 5px;
       opacity: 0.8;
       margin-left: 10px;
+      background-color: #C0C0C0;
     }
     .otherInfo{
-      font-size: 16px;
+      font-size: 12px;
       font-family: 'Comic Sans MS';
     }
     .languageList{
+      font-size: 20px;
       font-family: 'Comic Sans MS';
+    }
+    .caption{
+      font-size: 18px;
+      font-family: 'Comic Sans MS'; 
+    }
+    img#btnPlay{
+      width: 60px;
+      height: 60px;
     }
   </style>
   <title>Nguyen Van Luong | Software Engineer</title>
@@ -70,8 +83,10 @@
     </div>
     <!--Main contain -->
     <div id="radioplay">
-      <audio id="audioplayer" preload="true" autoplay ="true" controls="" src="http://bbcwssc.ic.llnwd.net/stream/bbcwssc_mp1_ws-eieuk" hidden></audio>
-      <img src="stop.png" id = "btnPlay"  class="hidden-xs"></button>
+      <audio id="audioplayer" preload="true" autoplay controls hidden>
+        <source src="http://bbcwssc.ic.llnwd.net/stream/bbcwssc_mp1_ws-eieuk">
+      </audio>
+      <img src="images/stop.png" id = "btnPlay"  class="hidden-xs"></button>
       <span id="channelName">BBC World Service</span>
     </div>
     <div class="container bs-docs-container" id='main-contain'>
@@ -84,13 +99,24 @@
       <h2 class="languageList">French Radio</h2>
       </div>
       
-      <div class="row" id="listViet">
-      <h2 class="languageList">Vietnamese Radio</h2>
+      <div class="row" id="listIns">
+      <h2 class="languageList">Close your eyes and feel...</h2>
+      </div>
+      <div class="row" id="listOthers">
+      <h2 class="languageList">Others</h2>
       </div>
       
       <!--End of main contain -->
     </div>
-   
+  <div id="container_wrapper" style="position: relative; width: 430px; height: 32px;" hidden>
+    <object type="application/x-shockwave-flash" data="RadioPlayer.swf" width="100%" height="100%" bgcolor="#000000" id="container" name="container" tabindex="0">
+    <param name="allowfullscreen" value="true">
+    <param name="allowscriptaccess" value="always">
+    <param name="seamlesstabbing" value="true">
+    <param name="wmode" value="opaque">
+    <param name="flashvars" id="flash-value" value="netstreambasepath=http%3A%2F%2Fvov.vn%2FRadioPlayer.aspx%3Fc%3Dvov3&amp;id=container&amp;autostart=true&amp;skin=JScripts%2Fmodieus.zip&amp;file=vov3&amp;streamer=rtmp%3A%2F%2F210.245.60.242%3A1935%2Fvov3&amp;provider=rtmp&amp;controlbar.position=bottom&amp;controlbar.idlehide=false">
+    </object>
+  </div>
     <!--Footer -->
     <footer id='the_footer'>
        <div id='social_network'>

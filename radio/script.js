@@ -232,7 +232,7 @@ RadioStream.prototype.createDOMElement = function() {
 	logo.src=this.logo;
 	caption.setAttribute('class','caption');
 	name.innerHTML=that.name;
-	other.setAttribute('class','otherInfo');
+	other.setAttribute('class','otherInfo hidden-xs');
 	otherText.innerHTML='['+that.category+']';
 	caption.appendChild(name);
 	other.appendChild(otherText);

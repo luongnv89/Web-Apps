@@ -238,6 +238,19 @@ luongnvinfo={
 		rsP = document.getElementById('previousName');
 		rsN = document.getElementById('nextName');
 		btnNext = document.getElementById('btnNext');
+		btnTime = document.getElementById('btnTime');
+		btnTime.onclick=function () {
+			var time = prompt('Set time to stop (minutes)',10);
+			if(time<0&&!(time instanceof Number)){
+				alert('Wrong input');
+			}else{
+				window.setTimeout(function () {
+					audioplayer.remove();
+					var content = document.getElementById('main-contain');
+					content.innerHTML="<h1 id='thankText'>Thank you ... !</h1>";
+				},time*10000);
+			}
+		}
 		btnNext.onclick = function () {
 			var currentIndex = audioplayer.getAttribute('currentRS');
 			if(currentIndex>=luongnvinfo.data.length-1){

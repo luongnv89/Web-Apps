@@ -248,7 +248,7 @@ luongnvinfo={
 					audioplayer.remove();
 					var content = document.getElementById('main-contain');
 					content.innerHTML="<h1 id='thankText'>Thank you ... !</h1>";
-				},time*10000);
+				},time*60000);
 			}
 		}
 		btnNext.onclick = function () {

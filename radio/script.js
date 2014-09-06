@@ -341,7 +341,7 @@ luongnvinfo={
 		caption.setAttribute('class','caption');
 		name.innerHTML=rs.name;
 		other.setAttribute('class','otherInfo hidden-xs');
-		otherText.innerHTML='['+rs.category+']';
+		otherText.innerHTML='['+luongnvinfo.cats[rs.category]+']';
 		caption.appendChild(name);
 		other.appendChild(otherText);
 		caption.appendChild(other);

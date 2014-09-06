@@ -17,10 +17,6 @@
   <link rel="stylesheet" type="text/css" href="css/hover-min.css">
   <link rel="stylesheet" type="text/css" href="css/appcss.css">
   <style type="text/css">
-    .page-header{
-      margin-top: 60px;
-    }
-
     #radioName{
       font-weight: bold;
       margin-bottom:10px;
@@ -29,10 +25,10 @@
       font-style: italic;
     }
     #radioplay{
-      width: 81.5%;
-      position: fixed; 
+      /*margin-top: 30px;*/
+      width: 100%;
       z-index: 10000;
-      padding: 5px;
+      padding: 3px;
       opacity: 0.8;
       background-color: #C0C0C0;
     }
@@ -70,8 +66,13 @@
       margin: 10px;
       font-size: 13px;
       font-family: 'Comic Sans MS';
-      white-space: nowrap;
-      overflow: hidden;
+      /*white-space: nowrap;*/
+      /*overflow: hidden;*/
+    }
+    #audioplayer{
+      position: absolute;
+      top:-30px;
+      right:-10px;
     }
   </style>
   <title>Nguyen Van Luong | Software Engineer</title>
@@ -91,47 +92,75 @@
 
   <!--Main body --> 
   <div id='big_wrapper'>
-    <div id="radioplay">
-        <img src="images/stop.png" id = "btnPlay" class="grow"></button>
-        <span id="radioName">BBC World Service</span><span id="rs-description" class="hidden-xs">International news, analysis and information from the BBC World Service. In-depth news and sport with audio, video and forums.</span>   
+    <audio id="audioplayer" preload="true" autoplay controls currentRS="0" hidden>
+      <source src="http://pianosolo.streamguys.net:80/live">
+      </audio>
+      <!--Header -->
+      <div class="page-header">
+        <h1>Radio Online <small class="hidden-xs">Enjoy every moment</small></h1>
       </div>
-    <!--Header -->
-    <div class="page-header">
-      <h1>Radio Online <small class="hidden-xs">Enjoy every moment</small></h1>
-    </div>
-    <!--Main contain -->
-    
-    <div class="container bs-docs-container" id='main-contain'>
-      
-      <div class="row" id="listEnglish">
-      <h2 class="languageList">English Radio</h2>
-      </div>
+      <!--Main contain -->
 
-      <div class="row" id="listFrench">
-      <h2 class="languageList">French Radio</h2>
+      <div class="container bs-docs-container" id='main-contain'>
+        <!-- CURRENT CHANNEL -->
+        <div class="media" id="currentChannel">
+          <div class=" pull-left">
+          <img class="media-object grow box-shadow-outset hidden-xs" src="images/piano.png" alt="Current Channel Logo" id="currentLogo" style="padding:10px;">
+          <div id="radioName">Media heading</div>  
+          </div>
+          <div class="media-body hidden-xs">
+            <h4 class="media-heading">Information</h4>  
+            <span id="rs-description" >In spite of its cringeworthy name, this station is actually rather a classy operation, which provides an online outlet for the works of over two hundred talented but unsigned solo piano composers. The music tends towards meditative, classical-style compositions (think Ludovico Einaudi and George Winston in terms of tone), and makes for a gentle alternative to Classic FM.</span> 
+          </div>
+        </div>
+        <!-- PLAYER -->
+        <div id="radioplay">
+          <img src="images/playlist.png" alt="PlayList" id="btnPlayList" data-toggle="modal" data-target="#myModal" style="float:left;margin-top:10px;" class="grow" title="List Channels">
+          <span id="previousName" class="hidden-xs" style="margin:3px;">Previous Radio Station</span> 
+          <img src="images/previous.png" alt="Previous" id="btnPrevious" style="margin:3px;" class="grow" title="Previous Channel">
+          <img src="images/stop.png" id = "btnPlay" class="grow" style="margin:3px;" title="Pause/Play">
+          <img src="images/next.png" alt="Next" id="btnNext" style="margin:3px;" class="grow" title="Next Channels">
+          <span id="nextName" class="hidden-xs" style="margin:3px;">Next Radio Station</span> 
+        </div>
+        <!--End of main contain -->
       </div>
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+              <h4 class="modal-title" id="myModalLabel">Pick a radio station</h4>
+            </div>
+            <div class="modal-body">
+              <div class="row" id="listEnglish">
+                <h2 class="languageList">English Radio</h2>
+              </div>
+
+              <div class="row" id="listFrench">
+                <h2 class="languageList">French Radio</h2>
+              </div>
+
+              <div class="row" id="listIns">
+                <h2 class="languageList">Close your eyes and feel...</h2>
+              </div>
+              <div class="row" id="listOthers">
+                <h2 class="languageList">Others</h2>
+              </div>
+            </div>
+            <div class="modal-footer">
+            </div>
+          </div>
+        </div>
+      </div>
+<!--       <footer id='the_footer'>
+        <div id='social_network'>
+          Contact - <a href="mailto:luongnv89@gmail.com"><img src="images/email.png" class='link_icon float-shadow'></a>
+          <a href="http://fr.linkedin.com/in/luongnv"><img src="images/linkedin.png" class='link_icon float-shadow'></a>
+          <a href="https://twitter.com/luongnv89"><img src="images/twitter.png" class='link_icon float-shadow'></a>
+        </div>
+      </footer> -->
       
-      <div class="row" id="listIns">
-      <h2 class="languageList">Close your eyes and feel...</h2>
-      </div>
-      <div class="row" id="listOthers">
-      <h2 class="languageList">Others</h2>
-      </div>
-      
-      <!--End of main contain -->
+      <!-- End of main body -->
     </div>
-          <audio id="audioplayer" preload="true" autoplay controls hidden>
-          <source src="http://bbcwssc.ic.llnwd.net/stream/bbcwssc_mp1_ws-eieuk">
-        </audio>
-    <!--Footer -->
-    <footer id='the_footer'>
-       <div id='social_network'>
-    Contact - <a href="mailto:luongnv89@gmail.com"><img src="images/email.png" class='link_icon float-shadow'></a>
-    <a href="http://fr.linkedin.com/in/luongnv"><img src="images/linkedin.png" class='link_icon float-shadow'></a>
-    <a href="https://twitter.com/luongnv89"><img src="images/twitter.png" class='link_icon float-shadow'></a>
-  </div>
-  </footer>
-  <!-- End of main body -->
-</div>
-</body>
-</html>
+  </body>
+  </html>

@@ -234,6 +234,28 @@ luongnvinfo={
 		btnPlay = document.getElementById('btnPlay');
 		rsName = document.getElementById('radioName');
 		rsDesc = document.getElementById('rs-description');
+		rsLogo = document.getElementById('currentLogo');
+		rsP = document.getElementById('previousName');
+		rsN = document.getElementById('nextName');
+		btnNext = document.getElementById('btnNext');
+		btnNext.onclick = function () {
+			var currentIndex = audioplayer.getAttribute('currentRS');
+			if(currentIndex>=luongnvinfo.data.length-1){
+
+			}else{
+				luongnvinfo.selectStream(Number(currentIndex)+1);	
+			}
+		}
+		btnPrevious = document.getElementById('btnPrevious');
+		btnPrevious.onclick = function () {
+			var currentIndex = audioplayer.getAttribute('currentRS');
+			if(currentIndex==0){
+
+			}else{
+				luongnvinfo.selectStream(Number(currentIndex)-1);	
+			}
+		}
+
 		btnPlay.onclick = function () {
 			luongnvinfo.btnPlayClick();
 		}
@@ -242,8 +264,7 @@ luongnvinfo={
 		listIns = document.getElementById('listIns');
 		listOthers = document.getElementById('listOthers');
 		for(var i=0;i<luongnvinfo.data.length;i++){
-			var rsData = new RadioStream(luongnvinfo.data[i]);
-			var rsDOM = rsData.createDOMElement();
+			var rsDOM = luongnvinfo.createDOMElement(i,luongnvinfo.data[i]);
 			switch(luongnvinfo.data[i].language){
 				case 0:
 				listEnglish.appendChild(rsDOM);
@@ -259,75 +280,80 @@ luongnvinfo={
 				break;
 			}
 		}
+		luongnvinfo.selectStream(0);
 
 	},
 	btnPlayClick:function () {
 		if(audioplayer.paused){
-			//console.log('Going to play');
 			btnPlay.src='images/stop.png';
 			audioplayer.play();
 		}else{
-			//console.log('Going to stop');
 			btnPlay.src='images/play.png';
 			audioplayer.pause();
 		}
 	},
-	selectStream:function (urlStream,nameStream,desc) {
-		//console.log('Stream: ' + urlStream);
-		rsName.innerHTML=nameStream;
-		rsDesc.innerHTML=desc;
-		luongnvinfo.btnPlayClick();
+	selectStream:function (rsIndex) {
+		console.log('Selected: ' + rsIndex);
+		var rsData = luongnvinfo.data[rsIndex];
+		rsName.innerHTML=rsData.name;
+		rsDesc.innerHTML=rsData.desc;
+		rsLogo.src=rsData.logo;
+		if(rsIndex>0){
+			rsP.innerHTML=luongnvinfo.data[rsIndex-1].name;
+		}else{
+			rsP.innerHTML="No previous";
+		}
+
+		if(rsIndex<luongnvinfo.data.length-1){
+			var nextRS =luongnvinfo.data[rsIndex+1];
+			rsN.innerHTML=nextRS.name;
+		}else{
+			rsN.innerHTML="No Next";	
+		}
+
+		audioplayer.setAttribute('currentRS',rsIndex);
 		var listSource = audioplayer.querySelectorAll('source');
 		for(var i=0;i<listSource.length;i++){
 			listSource[i].remove();
 		}
+		urlStream = luongnvinfo.data[rsIndex].url;
 		for(var j=0;j<urlStream.length;j++){
 			var source = document.createElement('source');
 			source.src = urlStream[j];
 			audioplayer.appendChild(source);
 		}
 		audioplayer.load();
-		luongnvinfo.btnPlayClick();
+	},
+	createDOMElement:function (index,rs) {
+		var col = document.createElement('div'),
+		thumbnail = document.createElement('div'),
+		logo = document.createElement('img'),
+		caption = document.createElement('div'),
+		name = document.createElement('h3'),
+		other = document.createElement('div'),
+		otherText = document.createElement('h4');
+		col.setAttribute('class','col-sm-6 col-md-4');
+		col.setAttribute('id','rs-'+index);
+		col.setAttribute('data-dismiss','modal');
+		thumbnail.setAttribute('class','thumbnail');
+		logo.setAttribute('class','thumb-image grow-rotate box-shadow-outset hidden-xs');
+		logo.src=rs.logo;
+		caption.setAttribute('class','caption');
+		name.innerHTML=rs.name;
+		other.setAttribute('class','otherInfo hidden-xs');
+		otherText.innerHTML='['+rs.category+']';
+		caption.appendChild(name);
+		other.appendChild(otherText);
+		caption.appendChild(other);
+		thumbnail.appendChild(logo);
+		thumbnail.appendChild(caption);
+		col.appendChild(thumbnail);
+		col.onclick= function () {
+			luongnvinfo.selectStream(index);
+		}; 
+		return col;
 	}
 
 }
 
 document.addEventListener('DOMContentLoaded',luongnvinfo.doFirst,false);
-
-function RadioStream (rs) {
-	this.url = rs.url;
-	this.logo=rs.logo;
-	this.name = rs.name;
-	this.language = luongnvinfo.langs[rs.language];
-	this.category = luongnvinfo.cats[rs.category];
-	this.desc = rs.desc;
-}
-
-RadioStream.prototype.createDOMElement = function() {
-	var that = this;
-	var col = document.createElement('div'),
-	thumbnail = document.createElement('div'),
-	logo = document.createElement('img'),
-	caption = document.createElement('div'),
-	name = document.createElement('h3'),
-	other = document.createElement('div'),
-	otherText = document.createElement('h4');
-	col.setAttribute('class','col-sm-6 col-md-4');
-	thumbnail.setAttribute('class','thumbnail');
-	logo.setAttribute('class','thumb-image grow-rotate box-shadow-outset hidden-xs');
-	logo.src=this.logo;
-	caption.setAttribute('class','caption');
-	name.innerHTML=that.name;
-	other.setAttribute('class','otherInfo hidden-xs');
-	otherText.innerHTML='['+that.category+']';
-	caption.appendChild(name);
-	other.appendChild(otherText);
-	caption.appendChild(other);
-	thumbnail.appendChild(logo);
-	thumbnail.appendChild(caption);
-	col.appendChild(thumbnail);
-	col.onclick= function () {
-		luongnvinfo.selectStream(that.url,that.name,that.desc);
-	}; 
-	return col;
-};

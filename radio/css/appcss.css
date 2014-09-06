@@ -5,7 +5,7 @@ h1{
       display:block;
     }
     body{
-      width:90%;
+      /*width:100%;*/
       display:-webkit-box;
       display:-moz-box;
       -webkit-box-pack:center;

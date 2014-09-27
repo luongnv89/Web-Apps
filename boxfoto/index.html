@@ -1,0 +1,76 @@
+<!DOCTYPE>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Boxfoto | Nguyen Van Luong | luongnv89@gmail.com</title>
+  <link rel="shortcut icon" href="icon.ico">
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <!-- End Bootstrap 3.2.0 -->
+  <!-- <script type="text/javascript" src="script.js"></script> -->
+  <link rel="stylesheet" type="text/css" href="../css/hover-min.css">
+  <link rel="stylesheet" type="text/css" href="boxfoto.css">
+  <script type="text/javascript" src="boxfoto.js"></script>
+</head>
+<body>
+
+  <!--Main body --> 
+  <div id='big_wrapper' class="container">
+
+    <!--Header -->
+    <div class="page-header">
+      <h1>Boxfoto <small class="hidden-xs">Enjoy every moment</small></h1>
+    </div>
+    <!--Main contain -->
+
+    <div class="bs-docs-container" id='main-contain'>
+      <video id="myvideo" autoplay>
+
+      </video>
+      <canvas style="display:none;" id="myCanvas"></canvas>
+      <div id="btnActions">
+        <span class="glyphicon glyphicon-camera grow btn" id="btnCapture"></span>
+        <span class="glyphicon glyphicon-th-list grow btn" alt="PlayList" id="btnListEffects" data-toggle="modal" data-target="#myModal" style="float:left;" title="List effects"></span>
+      </div>
+      <h2>List photos</h2>
+      <div class="row" id="list-photos">
+      </div>
+      <!--End of main contain -->
+    </div>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title" id="myModalLabel">Pick an Effects</h4>
+          </div>
+          <div class="modal-body">
+            <div class="row" id="listEnglish">
+              <!-- <h2 class="effect-list">Effects</h2> -->
+            </div>
+          </div>
+          <div class="modal-footer">
+          </div>
+        </div>
+      </div>
+    </div>
+      <!-- <footer id='the_footer'>
+        <div id='social_network'>
+          Contact - <a href="mailto:luongnv89@gmail.com"><img src="images/email.png" class='link_icon float-shadow'></a>
+          <a href="http://fr.linkedin.com/in/luongnv"><img src="images/linkedin.png" class='link_icon float-shadow'></a>
+          <a href="https://twitter.com/luongnv89"><img src="images/twitter.png" class='link_icon float-shadow'></a>
+        </div>
+      </footer> -->
+      
+      <!-- End of main body -->
+    </div>
+  </body>
+  </html>

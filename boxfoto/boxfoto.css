@@ -1,0 +1,114 @@
+h1{
+  font:bold 30px Tahoma;
+}
+header, section, footer, aside, nav, article, hgroup{
+  display:block;
+}
+body{
+  width:100%;
+  display:-webkit-box;
+  display:-moz-box;
+  -webkit-box-pack:center;
+  -moz-box-pack:center;
+}
+
+.page-header{
+	margin: 5px; 
+}
+#big_wrapper{
+  max-width:1000px;
+  margin:10px 0px;
+  display:-webkit-box;
+  display:-moz-box;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -webkit-box-flex:1;
+  -moz-box-flex:1;
+}
+#top_header{
+  padding: 10px;
+  margin-left: 10px;
+}
+
+#the_footer{
+  text-align:center;
+}
+
+.link_icon{
+  width: 32px;
+  margin: 5px;
+}
+
+#main-contain{
+  margin-top: 0px;
+  display:-webkit-box;
+  display:-moz-box;
+  -webkit-box-orient:vertical;
+  -moz-box-orient:vertical;
+  width: 90%;
+  /*border: 2px solid green;*/
+  /*border-radius: 10px;*/
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.thumbnail{
+  text-align: center;
+}
+
+.effect-list{
+  font-size: 20px;
+  font-family: 'Comic Sans MS';
+}
+.caption h3{
+  font-size: 16px;
+  font-family: 'Comic Sans MS'; 
+}
+
+.row{
+  background-color:#CEECF5;
+  padding: 5px;
+  margin: 5px;
+}
+
+.thumb-image{
+  width: 80px;
+  height: 80px;
+}
+
+.glyphicon-th-list{
+  font-size: 2em;
+  margin: 3px;
+  float: left;
+  /*color: #0000FF;*/
+}
+.modal-dialog{
+  width: 90%;
+}
+
+.glyphicon-camera{
+	font-size: 3em;
+	color: red;
+}
+
+#btnActions{
+	margin-right: auto;
+	margin-left: auto;
+	text-align: center;
+}
+
+video{
+	display:-webkit-box;
+  display:-moz-box;
+  -webkit-box-orient:vertical;
+  -moz-box-orient:vertical;
+  /*height: 60%;*/
+  width: 640px;
+  height: 480px;
+  border: 2px solid green;
+  border-radius: 10px;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: #81DAF5;
+}
+

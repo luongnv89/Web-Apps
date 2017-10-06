@@ -1,12 +1,9 @@
 #apps#
 Web Application for people who do not want to install any application.
-Check at: [http://apps.luongnv.info](http://apps.luongnv.info)
-
 ====
 #Ready apps:
-- Pdf viewer
-- Online Radio
-- QRCode generator
+- Pdf viewer: [https://luongnv89.github.io/apps/pdf](https://luongnv89.github.io/apps/pdf)
+- QRCode generator: [https://luongnv89.github.io/apps/qrcode](https://luongnv89.github.io/apps/qrcode)
 
 ====
 #Wish list apps:
